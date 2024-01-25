@@ -1,0 +1,95 @@
+:root {
+    --dark-blue: #1c1d2e;
+    --light-blue: #303250;
+    --main-white: #fff;
+    --dark-red: #860000;
+    --light-red: #ff8b8b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-color: var(--dark-blue);
+    color: var(--main-white);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+}
+
+h1 {
+    width: 200px;
+    text-align: center;
+    font-weight: 500;
+}
+
+form {
+    border: 1px solid var(--main-white);
+    background-color: var(--light-blue);
+    height: 200px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+label {
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+input {
+    width: 300px;
+    height: 35px;
+    background-color: var(--dark-blue);
+    color: var(--main-white);
+    border: 0.5px solid var(--main-white);
+    margin: 15px;
+    text-align: center;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    opacity: 1;
+    position: relative;
+    right: 8px;
+    cursor: pointer;
+}
+
+button {
+    width: 300px;
+    height: 35px;
+    color: var(--dark-blue);
+    background: linear-gradient(#ffca00, #db9400);
+    border: none;
+    border: 0.5px solid #db9400;
+    cursor: pointer;
+}
+
+button:active {
+    background: linear-gradient(#db9400, #6c4a00);
+    border: 0.5px solid #6c4a00;
+}
+
+#result {
+    width: 400px;
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 10px;
+    border: 1px solid var(--main-white);
+    background-color: var(--light-blue);
+}
