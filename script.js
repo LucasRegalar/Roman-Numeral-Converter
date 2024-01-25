@@ -33,7 +33,7 @@ function numToDigits(num) {
 }
 
 function isValidNum(num) {
-    if (num > 0) {
+    if (num > 0 && num < 4000) {
 
         return true;
     }
@@ -56,8 +56,13 @@ function updateViewError(num) {
         result.innerHTML = "Please enter a valid number."
 
         return;
-    } 
-        result.innerHTML = "Please enter a number greater than or equal to 1."
+    } else if (num >= 4000) {
+        result.innerHTML = "Please enter a number less than or equal to 3999."
+
+        return;
+    } else
+    
+    result.innerHTML = "Please enter a number greater than or equal to 1."
 }
 
 function updateViewResult(numRoman) {
