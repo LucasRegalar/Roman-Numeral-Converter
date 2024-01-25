@@ -4,6 +4,7 @@
     --main-white: #fff;
     --dark-red: #860000;
     --light-red: #ff8b8b;
+    font-size: 20px;
 }
 
 * {
@@ -25,7 +26,7 @@ main {
 }
 
 h1 {
-    width: 200px;
+    width: 250px;
     text-align: center;
     font-weight: 500;
 }
@@ -34,7 +35,7 @@ form {
     border: 1px solid var(--main-white);
     background-color: var(--light-blue);
     height: 200px;
-    width: 400px;
+    width: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,19 +50,21 @@ label {
 }
 
 input {
-    width: 300px;
-    height: 35px;
+    width: 330px;
+    height: 40px;
     background-color: var(--dark-blue);
     color: var(--main-white);
     border: 0.5px solid var(--main-white);
     margin: 15px;
     text-align: center;
+    font-size: 1rem;
 }
 
 input:focus {
     outline: none;
 }
 
+/* Not working in Firefox */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     opacity: 1;
@@ -71,13 +74,14 @@ input::-webkit-inner-spin-button {
 }
 
 button {
-    width: 300px;
-    height: 35px;
+    width: 330px;
+    height: 40px;
     color: var(--dark-blue);
     background: linear-gradient(#ffca00, #db9400);
     border: none;
     border: 0.5px solid #db9400;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 button:active {
@@ -86,10 +90,14 @@ button:active {
 }
 
 #result {
-    width: 400px;
+    width: 450px;
     text-align: center;
     font-size: 1.8rem;
     padding: 10px;
     border: 1px solid var(--main-white);
     background-color: var(--light-blue);
+}
+
+.hidden {
+    display: none;
 }
