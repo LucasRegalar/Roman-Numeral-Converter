@@ -6,12 +6,16 @@ const romanNumeralData = [
     ["", "X","XX","XXX","XL","L","LX","LXX","LXXX","XC"],
     ["", "C","CC","CCC","CD","D","DC","DCC","DCCC","CM"],
     ["", "M","MM","MMM"],
-]
+];
 
+const backgroundSuccess = "var(--light-blue)";
+const highlightSuccess = "var(--main-white)";
+const backgroundError = "var(--light-red)";
+const highlightError = "var(--dark-red)";
 
 function arabicToRoman(num) {
     if (!isValidNum(num)) {
-        updateViewError(num);
+        handleError(num);
 
         return;
     }
@@ -21,13 +25,14 @@ function arabicToRoman(num) {
     let numRoman = "";
     inputArr.forEach((digit, index) => {
          numRoman += romanNumeralData[inputArr.length - 1 - index][digit];
-     }); 
-         updateViewResult(numRoman);
+     });
+
+    updateView(numRoman, backgroundSuccess, highlightSuccess);
  }
 
 
 function numToDigits(num) {
-    const arr = Array.from(String(num), Number)
+    const arr = Array.from(String(num), Number);
 
     return arr;
 }
@@ -41,36 +46,32 @@ function isValidNum(num) {
     return false;
 }
 
-function updateView(input) {
-
+function updateView(resultMessage, backgroundColor, highlightColor) {
+    result.classList.remove("hidden");
+    result.style.backgroundColor = backgroundColor;
+    result.style.border = `1px solid ${highlightColor}`;
+    result.style.color = highlightColor;
+    result.innerHTML = resultMessage;
 }
 
 
-function updateViewError(num) {
-    result.classList.remove("hidden");
-    result.style.backgroundColor = "var(--light-red)";
-    result.style.border = "1px solid var(--dark-red)";
-    result.style.color = "var(--dark-red)";
-    
+
+function handleError(num) {
+    let errorMessage = "Undefined error occured.";
+
     if (!num) {
-        result.innerHTML = "Please enter a valid number."
-
-        return;
-    } else if (num >= 4000) {
-        result.innerHTML = "Please enter a number less than or equal to 3999."
-
-        return;
-    } else
+        errorMessage = "Please enter a valid number.";
+    }
     
-    result.innerHTML = "Please enter a number greater than or equal to 1."
-}
+    if (num >= 4000) {
+        errorMessage = "Please enter a number less than or equal to 3999.";
+    }
+    
+    if (num === 0 || num < 0) {
+        errorMessage = "Please enter a number greater than or equal to 1."
+    }
 
-function updateViewResult(numRoman) {
-    result.classList.remove("hidden");
-    result.style.backgroundColor = "var(--light-blue)";
-    result.style.border = "1px solid var(--main-white)";
-    result.style.color = "var(--main-white)";
-    result.innerHTML = numRoman;
+    updateView(errorMessage, backgroundError, highlightError);
 }
 
 
